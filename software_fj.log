@@ -1,0 +1,79 @@
+2026-11-20 22:11:59,278 | INFO | Cliente registrado: C001
+2026-11-20 22:11:59,278 | ERROR | Operación 2: El nombre debe contener al menos 3 caracteres.
+Traceback (most recent call last):
+  File "/mnt/data/Entrega_Fase4_SoftwareFJ/main.py", line 282, in ejecutar_demostracion
+    cliente_invalido = Cliente("C002", "Lu", "correo-invalido", "abc")
+  File "/mnt/data/Entrega_Fase4_SoftwareFJ/main.py", line 66, in __init__
+    raise ValidacionError("El nombre debe contener al menos 3 caracteres.")
+ValidacionError: El nombre debe contener al menos 3 caracteres.
+2026-11-20 22:11:59,279 | INFO | Cliente registrado: C003
+2026-11-20 22:11:59,279 | INFO | Servicio registrado: S001
+2026-11-20 22:11:59,279 | INFO | Servicio registrado: S002
+2026-11-20 22:11:59,279 | ERROR | Operación 6: La tarifa base debe ser un número positivo.
+Traceback (most recent call last):
+  File "/mnt/data/Entrega_Fase4_SoftwareFJ/main.py", line 317, in ejecutar_demostracion
+    servicio_invalido = AsesoriaEspecializada("S003", "Asesoría", -100)
+                        ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/Entrega_Fase4_SoftwareFJ/main.py", line 94, in __init__
+    raise ValidacionError("La tarifa base debe ser un número positivo.")
+ValidacionError: La tarifa base debe ser un número positivo.
+2026-11-20 22:11:59,279 | INFO | Reserva creada: R001
+2026-11-20 22:11:59,279 | INFO | Reserva R001 confirmada.
+2026-11-20 22:11:59,279 | INFO | Reserva R001 procesada. Total: 107100.00
+2026-11-20 22:11:59,279 | INFO | Finalizó el intento de procesamiento de R001.
+2026-11-20 22:11:59,279 | INFO | Reserva creada: R002
+2026-11-20 22:11:59,280 | ERROR | Operación 9: La reserva debe estar confirmada para procesarse.
+Traceback (most recent call last):
+  File "/mnt/data/Entrega_Fase4_SoftwareFJ/main.py", line 345, in ejecutar_demostracion
+    reserva2.procesar()
+    ~~~~~~~~~~~~~~~~~^^
+  File "/mnt/data/Entrega_Fase4_SoftwareFJ/main.py", line 209, in procesar
+    raise ReservaError("La reserva debe estar confirmada para procesarse.")
+ReservaError: La reserva debe estar confirmada para procesarse.
+2026-11-20 22:11:59,280 | INFO | Reserva creada: R003
+2026-11-20 22:11:59,280 | ERROR | Operación 10: El servicio no está disponible.
+Traceback (most recent call last):
+  File "/mnt/data/Entrega_Fase4_SoftwareFJ/main.py", line 355, in ejecutar_demostracion
+    reserva3.confirmar()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/mnt/data/Entrega_Fase4_SoftwareFJ/main.py", line 197, in confirmar
+    raise ServicioNoDisponibleError("El servicio no está disponible.")
+ServicioNoDisponibleError: El servicio no está disponible.
+2026-11-20 22:11:59,280 | ERROR | Operación 11: La reserva de sala debe ser de 1 a 12 horas.
+Traceback (most recent call last):
+  File "/mnt/data/Entrega_Fase4_SoftwareFJ/main.py", line 362, in ejecutar_demostracion
+    sala.calcular_costo(20)
+    ~~~~~~~~~~~~~~~~~~~^^^^
+  File "/mnt/data/Entrega_Fase4_SoftwareFJ/main.py", line 132, in calcular_costo
+    self.validar_parametros(cantidad)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/mnt/data/Entrega_Fase4_SoftwareFJ/main.py", line 129, in validar_parametros
+    raise ValidacionError("La reserva de sala debe ser de 1 a 12 horas.")
+ValidacionError: La reserva de sala debe ser de 1 a 12 horas.
+2026-11-20 22:11:59,280 | INFO | Reserva creada: R004
+2026-11-20 22:11:59,280 | INFO | Reserva R004 confirmada.
+2026-11-20 22:11:59,280 | INFO | Finalizó el intento de procesamiento de R004.
+2026-11-20 22:11:59,280 | ERROR | Operación 12: No fue posible calcular el valor de la reserva.
+Traceback (most recent call last):
+  File "/mnt/data/Entrega_Fase4_SoftwareFJ/main.py", line 211, in procesar
+    self._total = self._servicio.calcular_costo(
+                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._cantidad, impuesto, descuento
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/mnt/data/Entrega_Fase4_SoftwareFJ/main.py", line 133, in calcular_costo
+    return _calcular_total(self._tarifa_base * cantidad, impuesto, descuento)
+  File "/mnt/data/Entrega_Fase4_SoftwareFJ/main.py", line 159, in _calcular_total
+    raise ValidacionError("El impuesto debe expresarse entre 0 y 1.")
+ValidacionError: El impuesto debe expresarse entre 0 y 1.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/data/Entrega_Fase4_SoftwareFJ/main.py", line 373, in ejecutar_demostracion
+    reserva4.procesar(impuesto=2.0)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/mnt/data/Entrega_Fase4_SoftwareFJ/main.py", line 216, in procesar
+    raise ReservaError("No fue posible calcular el valor de la reserva.") from exc
+ReservaError: No fue posible calcular el valor de la reserva.
